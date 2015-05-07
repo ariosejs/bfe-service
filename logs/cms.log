@@ -1,9 +1,13 @@
-[2015-03-11 18:10:56.794] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.740] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.743] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.743] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.747] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.754] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.755] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.759] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
-[2015-03-11 18:13:45.761] [ERROR] cms - Uncaught exception: ReferenceError: config is not defined
+[2015-03-12 17:58:52.757] [TRACE] cms - demo:We handle 2 tasks each time.
+[2015-03-12 17:58:52.758] [TRACE] cms - demo:Starting resolving tasks
+[2015-03-12 17:58:52.759] [TRACE] cms - demo:Resolving tasks done,total:1
+[2015-03-12 17:58:52.759] [INFO] cms - demo:Render 296bytes in 1ms
+[2015-03-12 17:58:52.759] [TRACE] cms - demo:Sending to root@127.0.0.1:/fe/bfe.
+[2015-04-20 15:36:16.588] [TRACE] cms - demo:We handle 2 tasks each time.
+[2015-04-20 15:36:16.591] [TRACE] cms - demo:Starting resolving tasks
+[2015-04-20 15:36:16.592] [TRACE] cms - demo:Resolving tasks done,total:1
+[2015-04-20 15:36:16.599] [INFO] cms - demo:Render 296bytes in 7ms
+[2015-04-20 16:25:17.015] [TRACE] cms - demo:We handle 2 tasks each time.
+[2015-04-20 16:25:17.016] [TRACE] cms - demo:Starting resolving tasks
+[2015-04-20 16:25:17.016] [TRACE] cms - demo:Resolving tasks done,total:1
+[2015-04-20 16:25:17.017] [INFO] cms - demo:Render 296bytes in 1ms

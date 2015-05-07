@@ -2,14 +2,14 @@
 var express = require('express'),
 	cluster = require('cluster'),
 	routes = require('./routes'),
-	// routesLocal = require('./routes/local'),
+	routesLocal = require('./routes/local'),
 	child_process = require('child_process'),
 	fs = require('fs'),
 	http = require('http'),
 	path = require('path'),
 	rmdir = require('rmdir'),
 	swig = require('swig'),
-	// config = require('./libs/config'),
+	config = require('./libs/config'),
 	logger = require('./libs/log');
 
 var cpuCount = require('os').cpus().length;
@@ -64,10 +64,10 @@ if (cluster.isMaster) {
 	}
 
 	app.get('/', routes.index); //output templates list
-	// app.get(/^\/list/, routes.list);
+	app.get(/^\/list/, routes.list);
 	app.get(/^\/(spec|guide|index)/, routes.plain);
 	app.post(/^\/publish/, routes.publish); //core publish function
-	// app.get(/^\/log$/, routes.log);
+	app.get(/^\/log$/, routes.log);
 
 
 	http.createServer(app).listen(app.get('port'), function() {

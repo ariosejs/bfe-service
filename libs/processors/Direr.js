@@ -30,11 +30,6 @@ Direr.prototype = {
 		}
 		//make
 		do {
-			//Private buildDir is constructed by timestamp and a seed to 
-			//make sure it's UNIQUE.
-			//Theoretically it should satisfy many renderings from many people at the same moment
-			//and many renderings from one people.
-			//But still it has a chance to make wrong. Redo will fix that.
 			if (currentTries-- < 0) {
 				str = 'Cannot mkdir a build directory even after ' + config.MKDIR_MAXTRIES+' tries';
 				return callback(new Error(str));

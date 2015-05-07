@@ -1,21 +1,51 @@
 "use strict";
 
 var fs = require('fs'),
-	path = require('path');
-	// localfs = require('../libs/localfs'),
-	// config = require('../libs/config'),
+	path = require('path'),
+	localfs = require('../libs/localfs'),
+	config = require('../libs/config'),
 	TaskHandler = require('../libs/TaskHandler');
 
 exports.index = function(req, res) {
 	return res.render('index', {});
 };
 
+exports.list = function(req, res) {
+    var tpls = localfs.listFilesSync(config.PROJECTS_DIR, new RegExp("build" + path.sep + ".+" + config.TEMPLATE_EXT + '$'));
+    return res.render('list', {
+        files: tpls
+    });
+};
+
 exports.plain = function(req, res) {
 	return res.render(req.path.replace(/^\//,''), {});
 };
 
-exports.publish = function(req, res) {
+exports.log = function(req, res) {
+    var logdir = 'logs/'
+    var tabs = [];
+    var contents = [];
+    return fs.readdir(logdir, function(err, files) {
 
+        files.forEach(function(file) {
+            try {
+                if (fs.statSync(logdir + file).isFile() && /\blog\b/.test(file)) {
+                    tabs.push(file);
+                    contents.push(fs.readFileSync(logdir + file, {
+                        encoding: 'utf-8'
+                    }));
+                }
+            } catch (e) {
+            }
+        });
+        return res.render('log', {
+            tabs: tabs,
+            contents: contents
+        });
+    });
+};
+
+exports.publish = function(req, res) {
 	var tasks, remote, time, diff;
 	try {
 		tasks = JSON.parse(req.body.tasks);
@@ -38,7 +68,7 @@ exports.publish = function(req, res) {
 			});
 		}
 	}
-
+	console.log(tasks,remote,req.sessionID)
 	time = process.hrtime();
     var taskHandler = new TaskHandler({
         stub: req.body.stub,
